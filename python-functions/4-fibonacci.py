@@ -11,6 +11,3 @@ def fibonacci_sequence(n):
         fib_sequence.append(next_fib)
 
     return fib_sequence
-
-(fibonacci_sequence(1))
-(fibonacci_sequence(0))
