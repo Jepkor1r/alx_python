@@ -1,16 +1,7 @@
 #!/usr/bin/env python3
 
 def pow(a, b):
-    result = 1
-
-    if b < 0:
-        a = 1 / a
-        b = -b
-
-    for _ in range(b):
-        result *= a
-
-    return round(result, 20)
+    return a ** b
 
 if __name__ == "__main__":
     print(pow(2, 2))
