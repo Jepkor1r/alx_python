@@ -12,7 +12,5 @@ def fibonacci_sequence(n):
 
     return fib_sequence
 
-(fibonacci_sequence(6))
 (fibonacci_sequence(1))
 (fibonacci_sequence(0))
-(fibonacci_sequence(20))
