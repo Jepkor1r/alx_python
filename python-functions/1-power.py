@@ -10,7 +10,7 @@ def pow(a, b):
     for _ in range(b):
         result *= a
 
-    return result
+    return round(result, 2)
 
 if __name__ == "__main__":
     print(pow(2, 2))
