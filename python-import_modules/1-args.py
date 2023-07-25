@@ -20,8 +20,10 @@ def main():
         output_lines.append(f"{i}: {arg}")
 
     output = "\n".join(output_lines)
+
+    output_length = sum(len(line) + 1 for line in output_lines)
     print(output)
-    print(f"\n({len(output) - 1} chars long)")
+    print(f"\n({len(output)} chars long)")
 
     print("[stderr]: [Anything]")
 
