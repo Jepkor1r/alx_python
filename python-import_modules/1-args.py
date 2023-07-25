@@ -25,5 +25,4 @@ def main():
     print(f"\n({len(output)} chars long)")
 
 if __name__ == "__main__":
-    main()
-    
+    main() 
