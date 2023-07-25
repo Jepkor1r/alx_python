@@ -21,7 +21,7 @@ def main():
 
     output = "\n".join(output_lines)
     print(output)
-    print(f"\n({len(output)} chars long)")
+    print(f"\n({len(output) - 1} chars long)")
 
     print("[stderr]: [Anything]")
 
