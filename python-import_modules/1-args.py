@@ -3,29 +3,13 @@
 import sys
 
 
-def main():
-    arguments = sys.argv[1:]
-    num_arguments = len(arguments)
-
-    output_lines = []
-
-    if num_arguments == 0:
-        output_lines.append("0 arguments:")
-    elif num_arguments == 1:
-        output_lines.append("1 argument:")
-    else:
-        output_lines.append(f"{num_arguments} arguments:")
-
-    for i, arg in enumerate(arguments, start=1):
-        output_lines.append(f"{i}: {arg}")
-
-    output = "\n".join(output_lines)
-
-    output_length = sum(len(line) + 1 for line in output_lines)
-    print(output)
-    print(f"\n({len(output)} chars long)")
-
-    print("[stderr]: [Anything]")
-
 if __name__ == "__main__":
-    main()
+    args = sys.argv[1:]
+    num_args = len(args)
+
+    print(f"Number of argument(s): {num_args}", end="")
+    print("s" if num_args != 1 else "", end="")
+    print(":", end="" if num_args > 0 else ".\n")
+
+    for i, arg in enumerate(args, 1):
+        print(f"{i}: {arg}")
