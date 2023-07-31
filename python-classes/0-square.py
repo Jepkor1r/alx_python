@@ -57,5 +57,3 @@ class Square:
         if new_size < 0:
             raise ValueError("Size cannot be negative.")
         self.__size = new_size
-        
-    
