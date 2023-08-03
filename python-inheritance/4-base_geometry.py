@@ -13,6 +13,13 @@ class BaseGeometry:
     This class is intended to be used as a base for other geometry-related classes.
     It currently does not have any attributes or methods defined.
     """
+    def __dir__(self):
+        """
+        Customization of the attributes visible when calling `dir()`.
+
+        Excludes the 'area' method from the list of attributes.
+        """
+        return [attribute for attribute in super().__dir__() if attribute != 'area']
 
     def area(self):
         """
