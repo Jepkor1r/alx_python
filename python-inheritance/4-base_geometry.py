@@ -25,8 +25,6 @@ class BaseGeometry(metaclass=BaseGeometryMetaClass):
     def __dir__(self):
         """
         Customization of the attributes visible when calling `dir()`.
-
-        Excludes the 'area' method from the list of attributes.
         """
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
 
