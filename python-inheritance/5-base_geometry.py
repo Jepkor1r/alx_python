@@ -32,9 +32,9 @@ class BaseGeometry:
         Calculate the area of the geometry.
 
         Raises:
-            NotImplementedError: This method is not implemented in the base class.
+            Exception: This method is not implemented in the base class.
         """
-        raise NotImplementedError("area() is not implemented")
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
