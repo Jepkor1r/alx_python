@@ -2,17 +2,16 @@
 
 """
     Check if the given object is an instance of a class
-     Also if inherited from the specified class.
+     Also if it is inherited from the specified class.
 
     Parameters:
         obj: Any Python object.
         a_class:class name to compare the type of the object against.
 
     Returns:
-        bool: 
-        True if the object is an instance of a subclass of the specified class;
-        Otherwise False.
-
+     bool: 
+      True if the object is an instance of a subclass of the specified class;
+     Otherwise False.
     Example:
         >>> class Animal:
         ...     pass
@@ -38,8 +37,7 @@
         False
     """
 def inherits_from(obj, a_class):
-    """
-    Check if the given object is an instance of a class
-     Also if inherited from the specified class.
-    """
-    return  isinstance(obj, type) and issubclass(type(obj), a_class) and type(obj) is not a_class
+    """Check if the given object is an instance of a class
+    Also if it is inherited from the specified class."""
+    return isinstance(obj, type) and issubclass(obj, a_class) and obj is not a_class
+
