@@ -39,5 +39,3 @@ class BaseGeometry(metaclass=BaseGeometryMetaClass):
         """
         raise Exception("area() is not implemented")
     
-print(dir(BaseGeometry))
-    
