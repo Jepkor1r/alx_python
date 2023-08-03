@@ -9,7 +9,6 @@
         a_class:class name to compare the type of the object against.
 
     Returns:
-    bool: 
     True if the object is an instance of a subclass of the specified class;
     Otherwise False.
     Example:
