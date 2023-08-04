@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 
 """
-Importing BaseGeometry
-"""
-BaseGeometry = __import__('3-base_geometry').BaseGeometry
-"""
     A base class representing geometry.
 
     This class is intended to be used as a base for other geometry-related classes.
