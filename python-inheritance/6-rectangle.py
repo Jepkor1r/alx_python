@@ -76,6 +76,9 @@ class Rectangle(BaseGeometry):
     - __init__(self, width, height): Initialize a rectangle with width and height.
     """
    
+    def __init_subclass__(cls):
+            return Rectangle.__init_subclass()
+
     def __init__(self, width, height):
         """
         Initialize a rectangle with width and height.
