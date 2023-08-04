@@ -40,6 +40,15 @@ class BaseGeometry(metaclass=BaseGeometryMetaClass):
         Customization of the attributes visible when calling `dir()`.
         """
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+    
+    def inherits_from(Square, Rectangle):
+     """Check if the given object is an instance of a class
+     Also if it is inherited from the specified class."""
+     return (
+     issubclass(type(Square), Rectangle) and
+     type(Square) != Rectangle
+    )
+
     def area(self):
         """
         Calculate the area of the geometry.
