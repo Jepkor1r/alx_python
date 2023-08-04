@@ -19,6 +19,8 @@
             TypeError: If the value is not an integer.
             ValueError: If the value is less than or equal to 0.
     """
+
+
 class BaseGeometry:
     """
     A base class representing geometry.
@@ -89,10 +91,4 @@ class Rectangle(BaseGeometry):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
 
-def inherits_from(obj, a_class):
-    """Check if the given object is an instance of a class
-    Also if it is inherited from the specified class."""
-    return (
-     issubclass(type(obj), a_class) and
-     type(obj) != a_class
-    )
+

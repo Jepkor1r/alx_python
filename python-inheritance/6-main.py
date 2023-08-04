@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+BaseGeometry = __import__('5-base_geometry').BaseGeometry
 Rectangle = __import__('6-rectangle').Rectangle
 
 r = Rectangle(3, 5)
