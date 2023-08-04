@@ -75,9 +75,6 @@ class Rectangle(BaseGeometry):
     Public Methods:
     - __init__(self, width, height): Initialize a rectangle with width and height.
     """
-   
-    def __init_subclass__(cls):
-            return Rectangle.__init_subclass()
 
     def __init__(self, width, height):
         """
@@ -91,3 +88,11 @@ class Rectangle(BaseGeometry):
         self.__height = height
         self.integer_validator("width", width)
         self.integer_validator("height", height)
+
+def inherits_from(Rectangle, BaseGeometry):
+    """Check if the given object is an instance of a class
+    Also if it is inherited from the specified class."""
+    return (
+     issubclass(type(Rectangle), BaseGeometry) and
+     type(Rectangle) != BaseGeometry
+    )
