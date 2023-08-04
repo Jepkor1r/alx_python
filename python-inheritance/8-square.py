@@ -29,9 +29,13 @@ class BaseGeometry:
     It currently does not have any attributes or methods defined.
     """
 
+
 class BaseGeometryMetaClass(type):
     def __dir__(cls):
-        return[attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+        return[
+            attribute for attribute in super().__dir__()
+            if attribute != '__init_subclass__'
+            ]
 
 
 class BaseGeometry(metaclass=BaseGeometryMetaClass):
@@ -42,16 +46,20 @@ class BaseGeometry(metaclass=BaseGeometryMetaClass):
         """
         Customization of the attributes visible when calling `dir()`.
         """
-        return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+        return[
+            attribute for attribute in super().__dir__()
+            if attribute != '__init_subclass__'
+            ]
 
     def area(self):
         """
         Calculate the area of the geometry.
 
         Raises:
-            NotImplementedError: This method is not implemented in the base class.
+         Exception:
+         This method is not implemented in the base class.
         """
-        raise NotImplementedError("area() is not implemented")
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
         """
