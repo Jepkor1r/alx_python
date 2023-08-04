@@ -3,33 +3,36 @@
 """
     A base class representing geometry.
 
-    This class is intended to be used as a base for other geometry-related classes.
+    It is to be used as a base for other geometry-related classes.
     It currently does not have any attributes or methods defined.
 
     Public Methods:
     - area(self): Calculate the area of the geometry.
         Raises:
-            NotImplementedError: This method is not implemented in the base class.
+         Exception: This method is not implemented in the base class.
 
     - integer_validator(self, name, value): Validate an integer value.
         Parameters:
-            name (str): The name of the value being validated (assumed to be a string).
-            value: The value to be validated.
+         name (str): The name of the value being validated.
+         value: The value to be validated.
         Raises:
-            TypeError: If the value is not an integer.
-            ValueError: If the value is less than or equal to 0.
+         TypeError: If the value is not an integer.
+         ValueError: If the value is less than or equal to 0.
     """
+
+
 class BaseGeometry:
     """
     A base class representing geometry.
 
-    This class is intended to be used as a base for other geometry-related classes.
+    It is to be used as a base for other geometry-related classes.
     It currently does not have any attributes or methods defined.
     """
 
 class BaseGeometryMetaClass(type):
     def __dir__(cls):
         return[attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
+
 
 class BaseGeometry(metaclass=BaseGeometryMetaClass):
     """
@@ -131,10 +134,3 @@ class Square(Rectangle):
         self.integer_validator("size", size)
         super().__init__(size, size)
 
-    def inherits_from(Square, Rectangle):
-     """Check if the given object is an instance of a class
-     Also if it is inherited from the specified class."""
-     return (
-     issubclass(type(Square), Rectangle) and
-     type(Square) != Rectangle
-    )
