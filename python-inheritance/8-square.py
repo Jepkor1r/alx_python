@@ -37,14 +37,13 @@ class BaseGeometryMetaClass(type):
 class BaseGeometry(metaclass=BaseGeometryMetaClass):
     """
     A base class representing geometry
-    """  
+    """
     def __dir__(self):
         """
         Customization of the attributes visible when calling `dir()`.
         """
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
-    
- 
+
     def area(self):
         """
         Calculate the area of the geometry.
@@ -59,8 +58,8 @@ class BaseGeometry(metaclass=BaseGeometryMetaClass):
         Validate an integer value.
 
         Parameters:
-            name (str): The name of the value being validated (assumed to be a string).
-            value: The value to be validated.
+         name (str): The name of the value being validated.
+         value: The value to be validated.
 
         Raises:
             TypeError: If the value is not an integer.
@@ -78,9 +77,12 @@ class Rectangle(BaseGeometry):
     A class representing a rectangle, inheriting from BaseGeometry.
 
     Public Methods:
-    - __init__(self, width, height): Initialize a rectangle with width and height.
-    - area(self): Calculate the area of the rectangle.
-    - __str__(self): Return a string representation of the rectangle.
+    - __init__(self, width, height):
+      Initialize a rectangle with width and height.
+    - area(self):
+      Calculate the area of the rectangle.
+    - __str__(self):
+      Return a string representation of the rectangle.
     """
 
     def __init__(self, width, height):
@@ -110,7 +112,8 @@ class Rectangle(BaseGeometry):
         Return a string representation of the rectangle.
 
         Returns:
-            str: A string with the rectangle description in the format '[Rectangle] <width>/<height>'.
+         str: A string with the rectangle description.
+         In the format '[Rectangle] <width>/<height>'.
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
 
