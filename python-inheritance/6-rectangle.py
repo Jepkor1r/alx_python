@@ -89,10 +89,10 @@ class Rectangle(BaseGeometry):
         self.integer_validator("width", width)
         self.integer_validator("height", height)
 
-def inherits_from(Rectangle, BaseGeometry):
+def inherits_from(obj, BaseGeometry):
     """Check if the given object is an instance of a class
     Also if it is inherited from the specified class."""
     return (
-     issubclass(type(Rectangle), BaseGeometry) and
-     type(Rectangle) != BaseGeometry
+     issubclass(type(obj), BaseGeometry) and
+     type(obj) != BaseGeometry
     )
