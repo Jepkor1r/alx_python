@@ -41,14 +41,7 @@ class BaseGeometry(metaclass=BaseGeometryMetaClass):
         """
         return [attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
     
-    def inherits_from(Square, Rectangle):
-     """Check if the given object is an instance of a class
-     Also if it is inherited from the specified class."""
-     return (
-     issubclass(type(Square), Rectangle) and
-     type(Square) != Rectangle
-    )
-
+ 
     def area(self):
         """
         Calculate the area of the geometry.
@@ -137,3 +130,11 @@ class Square(Rectangle):
         self.__size = size
         self.integer_validator("size", size)
         super().__init__(size, size)
+
+    def inherits_from(Square, Rectangle):
+     """Check if the given object is an instance of a class
+     Also if it is inherited from the specified class."""
+     return (
+     issubclass(type(Square), Rectangle) and
+     type(Square) != Rectangle
+    )
