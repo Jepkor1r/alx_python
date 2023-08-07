@@ -37,6 +37,8 @@ class BaseGeometryMetaClass(type):
     def __dir__(cls):
         return[attribute for attribute in super().__dir__() if attribute != '__init_subclass__']
 
+BaseGeometry = __import__("5-base_geometry").BaseGeometry
+
 class BaseGeometry(metaclass=BaseGeometryMetaClass):
     """
     A base class representing geometry
