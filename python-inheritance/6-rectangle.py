@@ -1,8 +1,4 @@
 #!/usr/bin/python3
-"""
-Importing BaseGeometry
-"""
-BaseGeometry = __import__('5-base_geometry').BaseGeometry
 
 """
     A base class representing geometry.
@@ -24,14 +20,6 @@ BaseGeometry = __import__('5-base_geometry').BaseGeometry
             ValueError: If the value is less than or equal to 0.
     """
 
-
-class BaseGeometry:
-    """
-    A base class representing geometry.
-
-    This class is intended to be used as a base for other geometry-related classes.
-    It currently does not have any attributes or methods defined.
-    """
 
 class BaseGeometryMetaClass(type):
     def __dir__(cls):
@@ -96,5 +84,4 @@ class Rectangle(BaseGeometry):
         self.__height = height
         self.integer_validator("width", width)
         self.integer_validator("height", height)
-
-
+        
