@@ -19,7 +19,7 @@ class BaseGeometryMetaClass(type):
             if attribute != '__init_subclass__'
             ]
 
-BaseGeometry = __import__("7-rectangle").BaseGeometry
+Rectangle = __import__("7-rectangle").Rectangle
 
 class Square(Rectangle):
     """
