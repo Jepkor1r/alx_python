@@ -22,14 +22,20 @@
 
 
 class BaseGeometryMetaClass(type):
+    """
+    A base class representing geometry.
+    """
+
     def __dir__(cls):
+        """
+        Metaclass fix
+        """
         return[
             attribute for attribute in super().__dir__()
             if attribute != '__init_subclass__'
             ]
 
 BaseGeometry = __import__("7-base_geometry").BaseGeometry
-
 
 class Rectangle(BaseGeometry):
     """
