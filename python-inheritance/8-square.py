@@ -21,6 +21,7 @@ class BaseGeometryMetaClass(type):
 
 Rectangle = __import__("7-rectangle").Rectangle
 
+
 class Square(Rectangle):
     """
     A class representing a square, inheriting from Rectangle.
@@ -39,7 +40,7 @@ class Square(Rectangle):
         self.__size = size
         self.integer_validator("size", size)
         super().__init__(size, size)
-    
+
     def __dir__(cls):
         """
         Metaclass fix
@@ -48,4 +49,4 @@ class Square(Rectangle):
             attribute for attribute in super().__dir__()
             if attribute != '__init_subclass__'
         ]
-            
+      
