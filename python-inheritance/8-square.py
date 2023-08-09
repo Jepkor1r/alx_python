@@ -48,4 +48,3 @@ class Square(Rectangle):
         return[
             attribute for attribute in super().__dir__()
             if attribute != '__init_subclass__']
-    
