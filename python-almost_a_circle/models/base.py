@@ -15,8 +15,8 @@ def __init__(self, id=None):
         Args:
             id (int, optional): The ID value for the instance. Defaults to None.
         """
-    if id != None:
+     if id is not None:
         self.id = id
-    else:
+     else:
         Base.__nb_objects +=1
         self.id = Base.__nb_objects
