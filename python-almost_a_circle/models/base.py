@@ -20,3 +20,5 @@ def __init__(self, id=None):
      else:
         Base.__nb_objects +=1
         self.id = Base.__nb_objects
+        
+instance1 = Base()
