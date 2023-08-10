@@ -2,6 +2,7 @@
  In this module:
  Rectangle class inherits from Base class
 """
+
 from models.base import Base
 
 
