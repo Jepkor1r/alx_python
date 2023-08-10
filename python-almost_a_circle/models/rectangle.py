@@ -29,7 +29,6 @@ class Rectangle:
         self._validate_x()
         self._validate_y()
 
-
     @property
     def width(self):
         """Getting the Rectangle width"""
