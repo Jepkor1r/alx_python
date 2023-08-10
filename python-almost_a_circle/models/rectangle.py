@@ -15,7 +15,7 @@ class Rectangle:
             height: Rectangle height
             x: Rectangle x_value
             y: Rectangle y_value
-            id: Rectanle Id 
+            id: Rectangle Id 
         """
         super.__init__(id)
         self.__width = width
