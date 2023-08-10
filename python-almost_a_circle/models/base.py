@@ -5,6 +5,7 @@ This module defines Class Base
 """
 
 class Base:
+    """Base class for managing id attributes"""
      __nb_objects = 0
 
 def __init__(self, id=None):
