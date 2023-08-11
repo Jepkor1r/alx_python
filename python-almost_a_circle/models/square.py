@@ -17,7 +17,7 @@ class Square(Rectangle):
             x: Square x_value
             y: Square y_value
         """
-        super().__init__(size, size, id, x, y)
+        super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """
@@ -25,7 +25,7 @@ class Square(Rectangle):
 
          Returns formatted string.
         """
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.xy, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
     
     @property
     def size(self):
