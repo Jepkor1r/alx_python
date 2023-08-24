@@ -20,14 +20,15 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    cur.execute("""
-                SELECT *
-                FROM states
-                WHERE name
-                LIKE BINARY %s
-                ORDER BY id ASC
-                """(state,)
-                )
+    query = """
+    SELECT *
+    FROM states
+    WHERE name
+    LIKE BINARY %s
+    ORDER BY id ASC
+    """
+
+    cur.execute(query, (state,))
 
     rows = cur.fetchall()
     for row in rows:
