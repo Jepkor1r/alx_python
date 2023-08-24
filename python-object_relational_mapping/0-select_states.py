@@ -5,7 +5,7 @@ import MySQLdb
 import sys
 
 # Connect to the MySQL server
-db = MySQLdb.connect(host="localhost", user='username', passwd='password', db='database', port='3306')
+db = MySQLdb.connect(host="localhost", user= username, passwd= password, db= database, port= 3306)
 
 # Create a cursor object to interact with the database
 cursor = db.cursor()
