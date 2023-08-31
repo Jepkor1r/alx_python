@@ -38,7 +38,7 @@ def c(text, strict_slashes=False):
     Returns:
         str: A message "C" 
     """
-    text.replace("_", " ")
+    text = text.replace("_", " ")
     return f"C {escape(text)}"
 
 # Entry point of the application
