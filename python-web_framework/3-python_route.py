@@ -43,14 +43,15 @@ def c(text, strict_slashes=False):
 
 # Define a route for the "python/<text>" URL
 @app.route("/python/<text>")
-def python(text, strict_slashes=False):
+def python(text=None, strict_slashes=False):
     """"
       This function handles requests to the "python/<text>" URL of the web application.
     
     Returns:
         str: A message "Python followed by the value of the text variable" 
     """
-    text="is cool"
+    if text is None:
+        text="is cool"
     text = text.replace("_", " ")
     return f"Python {escape(text)}"
 
