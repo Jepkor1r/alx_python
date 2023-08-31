@@ -1,2 +1,2 @@
-## PYTHON-WEB FRAMEWORK!
-Web framework is a software designed to support development of web applications. 
+## PYTHON- WEB FRAMEWORKS!
+Web framework is a software designed to support the development of web application.
