@@ -50,6 +50,7 @@ def python(text, strict_slashes=False):
     Returns:
         str: A message "Python followed by the value of the text variable" 
     """
+    text="is cool"
     text = text.replace("_", " ")
     return f"Python {escape(text)}"
 
