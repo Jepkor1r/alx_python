@@ -55,7 +55,8 @@ def python(text, strict_slashes=False):
     return f"Python {escape(text)}"
 
 # Define a route for the "number/<n>" URL
-@app.route("/number/<int:n>")
+@app.route("/number/")
+@app.route("/number/<int:n>/")
 def number(strict_slashes=False):
     """"
       This function handles requests to the "number/<n>" URL of the web application.
