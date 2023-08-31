@@ -55,19 +55,15 @@ def python(text, strict_slashes=False):
     return f"Python {escape(text)}"
 
 # Define a route for the "number/<n>" URL
-@app.route("/number/")
-@app.route("/number/<int:n>/")
-def number(n, strict_slashes=False):
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
     """"
       This function handles requests to the "number/<n>" URL of the web application.
     
     Returns:
         str: A message "n is a number” and only if n is an integer" 
     """
-    if isinstance(n, int):
-        return f"{escape(n)} is a number"
-    else:
-        abort(404)
+    return f"{escape(n)} is a number"
 
 # Entry point of the application
 if __name__ == "__main__":
