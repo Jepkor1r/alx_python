@@ -31,14 +31,15 @@ def hbnb(strict_slashes=False):
 
 # Define a route for the "c/<text>" URL
 @app.route("c/<text>")
-def c(text):
+def c(text, strict_slashes=False):
     """"
       This function handles requests to the "c/<text>" URL of the web application.
     
     Returns:
         str: A message "C" 
     """
-    return "C {escape(text)}"
+    text.replace("_", " ")
+    return f"C {escape(text)}"
 
 # Entry point of the application
 if __name__ == "__main__":
