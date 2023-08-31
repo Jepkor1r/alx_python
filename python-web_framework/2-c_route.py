@@ -31,7 +31,7 @@ def hbnb(strict_slashes=False):
 
 # Define a route for the "c/<text>" URL
 @app.route("c/<text>")
-def c(text, strict_slashes=False):
+def c(text):
     """"
       This function handles requests to the "c/<text>" URL of the web application.
     
