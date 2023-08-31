@@ -1,0 +1,96 @@
+"""
+Starting a Flask web application
+"""
+
+from flask import Flask, render_template
+from markupsafe import escape
+
+# Create a Flask web application instance
+app = Flask(__name__)
+
+# Define a route for the root URL ("/")
+@app.route("/")
+def index(strict_slashes=False):
+    """"
+    This function handles requests to the root URL ("/") of the web application.
+    
+    Returns:
+        str: A simple greeting message "Hello HBNB!"
+    """
+    return "Hello HBNB!"
+
+# Define a route for the "/hbnb" URL
+@app.route("/hbnb")
+def hbnb(strict_slashes=False):
+    """"
+      This function handles requests to the "/hbnb" URL of the web application.
+    
+    Returns:
+        str: A message "HBNB" 
+    """
+    return "HBNB"
+
+# Define a route for the "c/<text>" URL
+@app.route("/c/<text>")
+def c(text, strict_slashes=False):
+    """"
+      This function handles requests to the "c/<text>" URL of the web application.
+    
+    Returns:
+        str: A message "C 'followed by the value of the text variable'" 
+    """
+    text = text.replace("_", " ")
+    return f"C {escape(text)}"
+
+# Define a route for the "python/<text>" URL
+@app.route("/python/", defaults={"text":"is cool"})
+@app.route("/python/<text>")
+def python(text, strict_slashes=False):
+    """"
+      This function handles requests to the "python/<text>" URL of the web application.
+    
+    Returns:
+        str: A message "Python 'followed by the value of the text variable'" 
+    """
+    text = text.replace("_", " ")
+    return f"Python {escape(text)}"
+
+# Define a route for the "number/<n>" URL
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    """"
+      This function handles requests to the "number/<n>" URL of the web application.
+    
+    Returns:
+        str: A message "n is a number” and only if n is an integer" 
+    """
+    return f"{escape(n)} is a number"
+
+# Define a route for the "number_template/<n>" URL
+@app.route("/number_template/<int:n>", strict_slashes=False)
+def number_template(n):
+    """"
+      This function handles requests to the "number_template/<n>" URL of the web application.
+    
+    Returns:
+        str: A message "n is a number” and only if n is an integer" 
+    """
+    return render_template("5-number.html", number=n)
+
+#define a route for the /number_odd_or_even/<n> URL and set strict_slashes to False
+@app.route('/number_odd_or_even/<int:n>', strict_slashes=False)
+def number_odd_or_even(n):
+    """
+    This function check if n is an integer
+    """
+    if n % 2 == 0:
+        return render_template('6-number_odd_or_even.html', n=n, result='even')
+    else:
+        return render_template('6-number_odd_or_even.html', n=n, result='odd')
+        """render the 'number_odd_or_even.html' template and pass the value of n and the result to the template"""
+
+# Entry point of the application
+if __name__ == "__main__":
+    # Run the Flask application on all available network interfaces (host='0.0.0.0')
+    # and use port 5000 for communication
+    app.run(host='0.0.0.0', port=5000)
