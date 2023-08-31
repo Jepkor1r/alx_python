@@ -30,7 +30,7 @@ def hbnb(strict_slashes=False):
     return "HBNB"
 
 # Define a route for the "c/<text>" URL
-@app.route("c/<text>")
+@app.route("/c/<text>")
 def c(text, strict_slashes=False):
     """"
       This function handles requests to the "c/<text>" URL of the web application.
