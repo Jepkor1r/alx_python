@@ -51,7 +51,7 @@ def python(text, strict_slashes=False):
         str: A message "Python followed by the value of the text variable" 
     """
     text = text.replace("_", " ")
-    return f"Python is cool"
+    return f"Python {escape(text)}"
 
 # Entry point of the application
 if __name__ == "__main__":
