@@ -64,10 +64,10 @@ def number(n, strict_slashes=False):
     Returns:
         str: A message "n is a number” and only if n is an integer" 
     """
-    if n==int:
+    if isinstance(n, int):
         return f"{escape(n)} is a number"
     else:
-        return(404)
+        abort(404)
 
 # Entry point of the application
 if __name__ == "__main__":
