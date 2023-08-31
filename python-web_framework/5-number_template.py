@@ -1,6 +1,7 @@
 """
 Starting a Flask web application
 """
+
 from flask import Flask, render_template
 from markupsafe import escape
 
@@ -67,7 +68,7 @@ def number(n):
 
 # Define a route for the "number_template/<n>" URL
 @app.route("/number_template/<int:n>", strict_slashes=False)
-def number(n):
+def number_template(n):
     """"
       This function handles requests to the "number_template/<n>" URL of the web application.
     
