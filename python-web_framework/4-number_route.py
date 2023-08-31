@@ -57,7 +57,7 @@ def python(text, strict_slashes=False):
 # Define a route for the "number/<n>" URL
 @app.route("/number/")
 @app.route("/number/<int:n>/")
-def number(strict_slashes=False):
+def number(n, strict_slashes=False):
     """"
       This function handles requests to the "number/<n>" URL of the web application.
     
