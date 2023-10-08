@@ -4,6 +4,7 @@ Python script that retrieves employees todos list
 """
 
 import requests
+import sys
 
 def employees_todo_list(ID):
     todos_response = requests.get('https://jsonplaceholder.typicode.com/users/1/todos')
@@ -19,6 +20,16 @@ def employees_todo_list(ID):
         employee_progresslist = 'Employee {} is done with tasks ({}/{}):'.format(user_data['name'], completed_tasks, total_tasks)
         # titles of completed tasks
         task_tittle =['\t{}'.format(todo['title']) for todo in todos_data if todo['completed']]
-        return employee_progresslist +'\n'.join(task_tittle)      
+        print(employee_progresslist +'\n'.join(task_tittle))      
     else:
-        return 'HTTPS request failed with status code: {}'.format(todos_response.status_code)
+        print('HTTPS request failed with status code: {}'.format(todos_response.status_code))
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: python script.py <ID>")
+    else:
+        try:
+            ID = int(sys.argv[1])
+            employees_todo_list(ID)
+        except ValueError:
+            print("Please enter a valid integer for the employee ID.")
