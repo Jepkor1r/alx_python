@@ -23,7 +23,7 @@ def employees_todo_list(employee_id):
         # Output the employee's todo list progress
         employee_progresslist = 'Employee {} is done with tasks({}/{}):'.format(user_data['name'], completed_tasks, total_tasks)
         # Titles of completed tasks
-        task_titles = ['\t{}'.format(todo['title']) for todo in todos_data if todo['completed']]
+        task_titles = ['\t {}'.format(todo['title']) for todo in todos_data if todo['completed']]
         progress = '\n'.join([employee_progresslist] + task_titles)
         print(progress)
     else:
