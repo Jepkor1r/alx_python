@@ -23,11 +23,7 @@ def employees_todo_list(employee_id):
         # Calculate the number of completed and total tasks
         total_tasks = len(todos_data)
         task_status= any(todo['completed'] for todo in todos_data)
-        alltask_record = ''
-        # Output the employee's todo list progress
-        task_titles = [todo['title'] for todo in todos_data]
-        for title in task_titles:
-            alltask_record += f'"{user_data["id"]}", "{user_data["name"]}", "{task_status}", "{title}"\n'
+    
 
         # Create the 'api' directory if it doesn't exist
         os.makedirs("api", exist_ok=True)
@@ -36,7 +32,12 @@ def employees_todo_list(employee_id):
             
         with open(csv_file, "w", newline="") as file:
             writer = csv.writer(file)
-            writer.writerows(alltask_record)
+            # Write the CSV header
+            writer.writerows(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
+             # Write each task as a separate row
+            for todo in todos_data:
+                writer.writerow([user_data["id"], user_data["name"], todo["completed"], todo["title"]])
+        
         print("{csv_file}")
     else:
         print('HTTPS request failed with status codes: todos={}, user={}'.format(todos_response.status_code, user_response.status_code))
