@@ -20,11 +20,7 @@ def employees_todo_list(employee_id):
     if todos_response.status_code == 200 and user_response.status_code == 200:
         todos_data = todos_response.json()
         user_data = user_response.json()
-        # Calculate the number of completed and total tasks
-        total_tasks = len(todos_data)
-        task_status= any(todo['completed'] for todo in todos_data)
-    
-
+        
         # Create the 'api' directory if it doesn't exist
         os.makedirs("api", exist_ok=True)
 
@@ -34,9 +30,16 @@ def employees_todo_list(employee_id):
             writer = csv.writer(file)
             # Write the CSV header
             writer.writerows(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
-             # Write each task as a separate row
+
             for todo in todos_data:
-                writer.writerow([user_data["id"], user_data["name"], todo["completed"], todo["title"]])
+                # Extract task details
+                user_id = user_data['id']
+                username = user_data['name']
+                task_completed = todo['completed']
+                task_title = todo['title']
+                
+                # Write task as a CSV row
+                writer.writerow([user_id, username, str(task_completed), task_title])
         
         print("{csv_file}")
     else:
