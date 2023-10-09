@@ -21,8 +21,8 @@ def employees_todo_list(employee_id):
 
         csv_file = os.path.abspath(f"api/{user_data['id']}.csv")
 
-        with open(csv_file, "w", newline="") as file:
-            writer = csv.writer(file)
+        with open(str(user_data["id"]) + ".csv", "w", newline="") as f:
+            writer = csv.writer(f, quoting=csv.QUOTE_ALL)
 
             # Write the CSV header
             writer.writerow(["User ID", "User Name", "Task Status", "Task Title"])
@@ -32,7 +32,7 @@ def employees_todo_list(employee_id):
                 task_status = "True" if todo['completed'] else "False"
                 writer.writerow([user_data["id"], user_data["name"], task_status, todo["title"]])
 
-        print(f"CSV file created at: {csv_file}")
+        print(f"{csv_file}")
     else:
         print('HTTPS request failed with status codes: todos={}, user={}'.format(todos_response.status_code, user_response.status_code))
 
