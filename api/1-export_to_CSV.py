@@ -69,6 +69,12 @@ def employees_todo_list(employee_id):
     todos_data = todos_response.json()
     user_data = user_response.json()
 
+    # Extract the username from user_data (if available)
+    if "username" in user_data:
+        user_username = user_data["username"]
+    else:
+        user_username = "N/A"
+
     alltask_record  = []
 
     for todo_data in todos_data:
