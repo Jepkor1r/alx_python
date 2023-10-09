@@ -20,7 +20,15 @@ def employees_todo_list(employee_id):
     if todos_response.status_code == 200 and user_response.status_code == 200:
         todos_data = todos_response.json()
         user_data = user_response.json()
-        
+        # Calculate the number of completed and total tasks
+        total_tasks = len(todos_data)
+        task_status= any(todo['completed'] for todo in todos_data)
+        alltask_record = ''
+        # Output the employee's todo list progress
+        task_titles = [todo['title'] for todo in todos_data]
+        for title in task_titles:
+            alltask_record += f'"{user_data["id"]}", "{user_data["name"]}", "{task_status}", "{title}"\n'
+
         # Create the 'api' directory if it doesn't exist
         os.makedirs("api", exist_ok=True)
 
@@ -28,20 +36,9 @@ def employees_todo_list(employee_id):
             
         with open(csv_file, "w", newline="") as file:
             writer = csv.writer(file)
-            # Write the CSV header
-            writer.writerows(["USER_ID","USERNAME","TASK_COMPLETED_STATUS","TASK_TITLE"])
-
-            for todo in todos_data:
-                # Extract task details
-                user_id = user_data['id']
-                username = user_data['name']
-                task_completed = todo['completed']
-                task_title = todo['title']
-                
-                # Write task as a CSV row
-                writer.writerow([user_id, username, str(task_completed), task_title])
-        
-        print("{csv_file}")
+           # Write each task as a separate row 
+            writer.writerows(f'"{user_data["id"]}", "{user_data["name"]}", "{task_status}", "{title}"\n')
+        print(alltask_record)
     else:
         print('HTTPS request failed with status codes: todos={}, user={}'.format(todos_response.status_code, user_response.status_code))
 
