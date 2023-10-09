@@ -19,9 +19,9 @@ def employees_todo_list(employee_id):
         # Create the 'api' directory if it doesn't exist
         os.makedirs("api", exist_ok=True)
 
-        csv_file = os.path.abspath(f"api/{user_data['id']}.csv")
+        csv_file = os.path.abspath(f"api/{user_data['id']}")
 
-        with open(str(user_data["id"]) + ".csv", "w", newline="") as f:
+        with open(str(csv_file) + ".csv", "w", newline="") as f:
             writer = csv.writer(f, quoting=csv.QUOTE_ALL)
 
             # Write the CSV header
