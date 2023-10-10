@@ -18,12 +18,7 @@ def employees_todo_list(employee_id):
 
     todos_data = todos_response.json()
     user_data = user_response.json()
-
-    # Extract the username from user_data (if available)
-    if "username" in user_data:
-        user_username = user_data["username"]
-    else:
-        user_username = "N/A"
+    employee_name = user_data["username"]
 
     alltask_record  = []
 
@@ -31,7 +26,7 @@ def employees_todo_list(employee_id):
         alltask_record.append(
             [
                 employee_id,
-                user_data,
+                employee_name,
                 todo_data["completed"],
                 todo_data["title"],
             ]
