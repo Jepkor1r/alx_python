@@ -18,7 +18,8 @@ def employees_todo_list(employee_id):
 
     todos_data = todos_response.json()
     user_data = user_response.json()
-    employee_name = user_data["username"]
+    
+    employee_name = user_data.get("username")
 
     alltask_record  = []
 
