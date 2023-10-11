@@ -1,3 +1,7 @@
+"""
+Python script to export data in Json format
+"""
+
 import requests
 import json
 
