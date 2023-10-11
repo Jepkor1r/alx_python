@@ -6,39 +6,52 @@ import csv
 import requests
 import sys
 
-
-def employees_todo_list(employee_id):
-    # Construct the API endpoints based on the provided employee_id
-    todos_url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(employee_id)
-    user_url = "https://jsonplaceholder.typicode.com/users/{}".format(employee_id)
-
-    # Make API requests
-    todos_response = requests.get(todos_url)
-    user_response = requests.get(user_url)
-
-    todos_data = todos_response.json()
-    user_data = user_response.json()
-
-
-    employee_name = user_data.get("username")
-
-    alltask_record  = []
-
-    for todo_data in todos_data:
-        alltask_record.append(
-            [
-                employee_id,
-                employee_name,
-                todo_data["completed"],
-                todo_data["title"],
-            ]
-        )
-
-    with open(str(employee_id) + ".csv", "w", encoding="UTF8", newline="") as f:
-        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
-        writer.writerows(alltask_record)
-
-
 if __name__ == "__main__":
-    employee_id = int(sys.argv[1])
-    employees_todo_list(employee_id)
+
+    base_url = "https://jsonplaceholder.typicode.com"
+    employee_id = sys.argv[1]
+
+    # Fetch employee details
+    employee_url = "{}/users/{}".format(base_url, employee_id)
+    employee_response = requests.get(employee_url)
+    employee_data = employee_response.json()
+
+    if 'name' not in employee_data:
+        print("Employee not found.")
+        sys.exit(1)
+
+    employee_username = employee_data.get('username')
+
+    # Fetch employee's TODO list
+    todo_url = "{}/users/{}/todos".format(base_url, employee_id)
+    todo_response = requests.get(todo_url)
+    todo_data = todo_response.json()
+
+    # Calculate progress
+    total_tasks = len(todo_data)
+    completed_tasks = sum(1 for task in todo_data if task.get("completed"))
+
+    # Display progress
+    print("Employee {} is done with tasks({}/{}):".format(employee_username,
+                                                          completed_tasks, total_tasks))
+
+    # Display completed task titles
+    for task in todo_data:
+        if task.get("completed"):
+            formatted_task_title = "\t {}".format(task.get("title"))
+            print(formatted_task_title)
+
+    # Export data in CSV
+    file_name = '{}.csv'.format(employee_id)
+    with open(file_name, mode='w', newline='',) as csv_file:
+        csv_writer = csv.writer(csv_file, delimiter=',',
+                                quotechar='"', quoting=csv.QUOTE_ALL)
+
+        # header
+        # csv_writer.writerow(
+        # ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE'])
+
+        # write each csv row
+        for task in todo_data:
+            csv_writer.writerow([employee_id, employee_username,
+                                task['completed'], task['title']])
