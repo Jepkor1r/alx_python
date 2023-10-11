@@ -38,8 +38,3 @@ def get_all_employees_info():
     # Write data to JSON file
     with open("todo_all_employees.json", "w") as jsonfile:
         json.dump(all_employee_data, jsonfile, indent=4)
-
-    print("Data exported to todo_all_employees.json")
-
-if __name__ == "__main__":
-    get_all_employees_info()
