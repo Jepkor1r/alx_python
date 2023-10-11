@@ -2,8 +2,8 @@
 Python script to export data in Json format
 """
 
-import requests
 import json
+import requests
 
 def get_all_employees_info():
     # Get all employees
